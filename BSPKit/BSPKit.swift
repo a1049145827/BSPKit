@@ -64,8 +64,8 @@ public class BSPKit {
             return
         }
         let dict: NSDictionary = ["fromAppUrlScheme": schemeStr as Any, "requestType": "SafePay", "dataString": orderStr as Any]
-        let dictEncodeString = (dict.bs.jsonString as NSString?)?.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
-        let openUrl = "\(BSPConst.shared.aliUrlPrefix)\(BSPConst.shared.aliUrlClient)\(dictEncodeString ?? "")"
+        let dictEncodeString = CFURLCreateStringByAddingPercentEscapes(nil, dict.bs.jsonString! as CFString, nil, "!*'();:@&=+$,/?%#[]" as CFString, CFStringBuiltInEncodings.UTF8.rawValue) as String
+        let openUrl = "\(BSPConst.shared.aliUrlPrefix)\(BSPConst.shared.aliUrlClient)\(dictEncodeString)"
         if nil != completedBlock {
             self.completedBlock = completedBlock
         }

@@ -31,7 +31,7 @@ struct BSPConst {
         let aliStrList = [ "alipay", "://", "client/?" ]
         let aliUrlSign = aliStrList.first!
         self.aliUrlPrefix = "\(aliUrlSign)\(aliStrList[1])"
-        self.aliUrlClient = "\(aliUrlSign)\(aliStrList.last!))"
+        self.aliUrlClient = "\(aliUrlSign)\(aliStrList.last!)"
         
         let wxStrList = [ "weixin", "://" ]
         let wxUrlSign = wxStrList.first!
