@@ -10,9 +10,9 @@ import Foundation
 
 public typealias CompletedBlock = ((_ resultDict: [AnyHashable: Any]) -> Void)
 
-class BSPKit {
+public class BSPKit {
     
-    static let defaultManager = BSPKit()
+    public static let defaultManager = BSPKit()
     
     var completedBlock: CompletedBlock? = nil
     var wxAppid: String? = nil
@@ -21,15 +21,15 @@ class BSPKit {
         
     }
     
-    class func isWxAppInstalled() -> Bool {
+    public class func isWxAppInstalled() -> Bool {
         return UIApplication.shared.canOpenURL(URL(string: BSPConst.shared.wxUrlPrefix)!)
     }
     
-    class func isAliAppInstalled() -> Bool {
+    public class func isAliAppInstalled() -> Bool {
         return UIApplication.shared.canOpenURL(URL(string: BSPConst.shared.aliUrlPrefix)!)
     }
     
-    func wxpOrder(_ req: XHPWxReq, completed completedBlock: CompletedBlock? = nil) {
+    public func wxpOrder(_ req: BSPWxReq, completed completedBlock: CompletedBlock? = nil) {
         
         if !BSPKit.isWxAppInstalled() {
             bsDebugLog("未安装微信")
@@ -50,7 +50,7 @@ class BSPKit {
         }
     }
     
-    func alipOrder(_ orderStr: String?, fromScheme schemeStr: String?, completed completedBlock: CompletedBlock?) {
+    public func alipOrder(_ orderStr: String?, fromScheme schemeStr: String?, completed completedBlock: CompletedBlock?) {
         if orderStr == nil {
             bsDebugLog("缺少orderStr参数")
             return
@@ -74,7 +74,7 @@ class BSPKit {
         }
     }
     
-    func handleOpen(_ url: URL?) -> Bool {
+    public func handleOpen(_ url: URL?) -> Bool {
         
         let urlString = (url?.absoluteString as NSString?)?.removingPercentEncoding
         

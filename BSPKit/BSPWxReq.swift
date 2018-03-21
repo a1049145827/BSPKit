@@ -8,20 +8,22 @@
 
 import Foundation
 
-class XHPWxReq: NSObject {
+public class BSPWxReq {
     /** 微信开放平台审核通过的应用APPID*/
     
-    var openID = ""
+    public var openID = ""
     /** 商户号 */
-    var partnerId = ""
+    public var partnerId = ""
     /** 交易会话ID */
-    var prepayId = ""
+    public var prepayId = ""
     /** 随机串，防重发 */
-    var nonceStr = ""
+    public var nonceStr = ""
     /** 时间戳，防重发 */
-    var timeStamp: UInt32 = 0
+    public var timeStamp: UInt32 = 0
     /** 扩展字段 */
-    var package = ""
+    public var package = ""
     /** 签名 */
-    var sign = ""
+    public var sign = ""
+    
+    public init() { }
 }
