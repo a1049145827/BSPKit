@@ -35,7 +35,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             提示:
             请替换支付参数为真实数据,
             便可进行实际支付
-            """, message: "", delegate: nil, cancelButtonTitle: "确定", otherButtonTitles: "")
+            """, message: "", delegate: nil, cancelButtonTitle: "确定")
         alert.show()
     }
     
@@ -98,9 +98,9 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             }
             //支付宝订单签名,此签名由后台签名订单后生成,并返回给客户端(与官方SDK一致)
             //注意:请将下面值设置为你自己真实订单签名,便可进行实际支付
-            let orderSign = "2018010801689398&biz_content=%7b%22timeout_express%22%3a%2230m%22%2c%22seller_id%22%3a%22pay%40qianzhan.com%22%2c%22product_code%22%3a%22QUICK_MSECURITY_PAY%22%2c%22total_amount%22%3a%220.01%22%2c%22subject%22%3a%2230%e5%a4%a9%e4%bd%bf%e7%94%a8%e6%9c%9f%e9%99%90%22%2c%22body%22%3a%2230%e5%a4%a9%e4%bd%bf%e7%94%a8%e6%9c%9f%e9%99%90%22%2c%22out_trade_no%22%3a%22data-180209-9913b1d3%22%7d&charset=utf-8&method=alipay.trade.app.pay&notify_url=https%3a%2f%2fappecV2.paipai123.com%2fapi%2fAlipay%2fAliPayNotify&sign_type=RSA2&timestamp=2018-02-23 10%3a54%3a15&version=1.0&sign=d4zihRv9g6OdzI7Tdh64iFarDajKUqcAGWzU9wB29g7X1w6NE5v9Zed2WwCNJFsZf%2fnwtgGQ24m5Ce4%2fxm2jzgyMO2NvRIWnnXO3sUKdBlGNEZeq034j3c3ZZ8L7p830TYRKecaxKt9%2bf%2fkCw67GN1%2bBwgPM1zdAB4xoD%2bqxrtJN79sCuc3xSaBojOWPm%2f9g0bQvd4VBP6ZzxLlbtVt0Yg5Nw2dY0gW4fiEJXfbPeCVW6gSa07bbEb%2fSbbWSgRJfNP%2f%2fi9jkM4Y9%2fLw3Jvj6wH792NUCieWvrIfl6BGiAY6PR0YKLM%2baskr6qkFX3D5H%2bTf6z%2bmf40bT8v74WaBnng%3d%3d"
+            let orderSign = "appId=1488357918048444&mhtCharset=UTF-8&mhtCurrencyType=156&mhtOrderAmt=1&mhtOrderDetail=%E5%8D%95%E4%B8%AA%E4%BB%98%E8%B4%B9%E8%8A%82%E7%9B%AE1012%20%E8%A7%82%E7%9C%8B%E5%88%B8&mhtOrderName=%E5%8D%95%E4%B8%AA%E4%BB%98%E8%B4%B9%E8%8A%82%E7%9B%AE1012%20%E8%A7%82%E7%9C%8B%E5%88%B8&mhtOrderNo=tradeno_201803211516361751c2978b7e78b4fb&mhtOrderStartTime=20180321151636&mhtOrderTimeOut=3600&mhtOrderType=01&notifyUrl=https://vrtest-api.aginomoto.com/newVR-report-service/thirdPartyPay/nowpayCallBack&payChannelType=12&mhtSignature=3e6ca36197963878a3cc21c5ff43cb84&mhtSignType=MD5"
             //传入支付宝订单签名 和 自己App URL Scheme,拉起支付宝支付
-            BSPKit.defaultManager.alipOrder(orderSign, fromScheme: "BSPKitExample", completed: {(_ resultDict: [AnyHashable: Any]) -> Void in
+            BSPKit.defaultManager.alipOrder(orderSign, fromScheme: "whaleyvr", completed: {(_ resultDict: [AnyHashable: Any]) -> Void in
                 print("支付结果: \(resultDict)")
                 
                 var status = -1
